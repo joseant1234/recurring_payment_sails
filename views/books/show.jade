@@ -1,0 +1,36 @@
+extends ../layout
+
+block body
+	.card.no-padding
+		header.cover(style="background-image: url(/images/books/avatars/#{book.avatarUrl})")
+		
+		.large-padding
+			.row
+				.col-xs-12.col-sm-6
+					h1= book.title
+					if book.description
+						p
+							strong Acerca del libro 
+								span= book.description
+					if book.publishedAt
+						p
+							strong Fue publicado 
+								span Publicado #{book.publishedAt}
+					if book.pages
+						p
+							strong No. Pàginas 
+								span Pàginas #{book.pages}
+					if book.pdfUrl
+						p
+							strong PDF 
+								span= book.pdfUrl
+				.col-xs-12.col-sm-6.text-right
+					a(role="button" data-toggle="collapse" href="#edit-form"
+						aria-expanded="false" aria-controls="edit-form") Mostrar opciones avanzadas
+
+					.collapse.text-left#edit-form
+						form(action="/book/#{book.id}?_method=PUT" method="POST" style="margin-top: 2em;" enctype="multipart/form-data")
+							.form-group
+								label(for="book") Archivo PDF del libro
+								input(type="file" name="book" class="form-control" id="book")
+							input(type="submit" class="btn btn-success" value="Guardar PDF del libro")

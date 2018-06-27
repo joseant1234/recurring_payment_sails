@@ -1,0 +1,39 @@
+extends ../layout
+
+block body
+	h1 Agregar libro
+	form(action="#{formURL}" method="POST" enctype="multipart/form-data" style="margin-top: 2em;")
+		.form-group
+			.row
+				.col-xs-4.col-md-2
+					label(for="title") Titulo del libro
+				.col-xs-8.col-md-10
+					input(type="text" name="title" class="form-control" required="true" id="title")
+		.form-group
+			.row
+				.col-xs-4.col-md-2
+					label(for="description") Descripcion
+				.col-xs-8.col-md-10
+					textarea(name="description" class="form-control" id="description")
+		.form-group
+			.row
+				.col-xs-4.col-md-2
+					label(for="avatar") Foto
+				.col-xs-8.col-md-10
+					input(type="file" name="avatar" class="form-control" id="avatar")
+		.form-group
+			.row
+				.col-xs-4.col-md-2
+					label(for="pages") Nùmero de pàginas
+				.col-xs-8.col-md-10
+					input(type="text" name="pages" class="form-control" id="pages")
+		.form-group
+			.row
+				.col-xs-4.col-md-2
+					label(for="publishedAt") Fecha de publicaciòn
+				.col-xs-8.col-md-10
+					input(type="date" name="publishedAt" class="form-control" id="publishedAt")
+		.form-group.text-right
+			input(type="submit" class="btn btn-success" value="Guardar libro")
+	//- include ./_form
+

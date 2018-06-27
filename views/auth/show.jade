@@ -1,0 +1,23 @@
+extends ../layout.jade
+block body
+	h1 Iniciar sesion
+	if error
+		.panel.panel-danger
+			.panel-heading
+				h3.panel-title Errores
+			.panel-body= error
+	form(action="/login" method="POST" style="margin-top: 2em;")
+		.form-group
+			.row
+				.col-xs-6.col-md-2
+					label(form="email") Correo electrónico
+				.col-xs-6.col-md-10
+					input(type="email" name="email" id="email" required=true class="form-control")
+		.form-group
+			.row
+				.col-xs-6.col-md-2
+					label(form="password") Contraseñña
+				.col-xs-6.col-md-10
+					input(type="password" name="password" id="password" required=true class="form-control")
+		.form-group.text-right
+			input(type="submit" class="btn btn-success" value="Ingresar")

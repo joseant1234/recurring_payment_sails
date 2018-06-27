@@ -1,0 +1,25 @@
+extends ../layout
+
+block body
+	table.table
+		caption Lista de usuarios en la plataforma
+		thead
+			th #
+			th Email
+			th Administrador
+		tbody
+			each user in users
+				tr
+					td= user.id
+					td= user.email
+					td= user.admin
+					td
+						form(action="/admin/#{user.id}?_method=PUT" method="POST" class="form-inline")
+							if user.admin
+								input(type="hidden" name="admin" value="0")
+								input(type="submit" value="Remover permisos" class="btn btn-danger")
+							else
+								input(type="hidden" name="admin" value="1")
+								input(type="submit" value="Asignar permisos" class="btn btn-success")
+
+

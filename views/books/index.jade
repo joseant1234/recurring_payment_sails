@@ -1,0 +1,19 @@
+extends ../layout
+
+block body
+	.row
+		.col-xs-8
+			h1 Ùltimos libros
+		.col-xs-4.text-right
+			a(href="/book/new" class="btn btn-info") Agregar libro 
+	.row
+		each book in books
+			.col-xs-10-col-sm-6.col-md-4
+				.card
+					h3
+						a(href="/book/#{book.id}")
+							= book.title
+					p= book.description
+					.actions
+						a(href="/book/#{book.id}/edit" style="margin-right: 1em;") Editar
+						a(href="/book/#{book.id}/delete" class="text-danger" style="margin-right: 1em;") Eliminar

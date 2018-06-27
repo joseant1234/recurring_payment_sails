@@ -1,0 +1,27 @@
+form(action="#{formURL}" method="POST" style="margin-top: 2em;")
+	.form-group
+		.row
+			.col-xs-4.col-md-2
+				label(for="title") Titulo del libro
+			.col-xs-8.col-md-10
+				input(type="text" name="title" class="form-control" required="true" id="title" value="#{book.title || ''}")
+	.form-group
+		.row
+			.col-xs-4.col-md-2
+				label(for="description") Descripcion
+			.col-xs-8.col-md-10
+				textarea(name="description" class="form-control" id="description")= book.description
+	.form-group
+		.row
+			.col-xs-4.col-md-2
+				label(for="pages") Nùmero de pàginas
+			.col-xs-8.col-md-10
+				input(type="text" name="pages" class="form-control" id="pages" value="#{book.pages}")
+	.form-group
+		.row
+			.col-xs-4.col-md-2
+				label(for="publishedAt") Fecha de publicaciòn
+			.col-xs-8.col-md-10
+				input(type="date" name="publishedAt" class="form-control" id="publishedAt" value="#{ book.customDate() }")
+	.form-group.text-right
+		input(type="submit" class="btn btn-success" value="Guardar libro")
